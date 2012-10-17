@@ -11,6 +11,7 @@ Connect.js). Name comes from [Chungking Express](http://en.wikipedia.org/wiki/Ch
 
 Set up a Users controller
 
+    ```javascript
     // users.js
     var BaseController = require('chungking').BaseController;
 
@@ -43,8 +44,9 @@ Set up a Users controller
       });
 
     });
-    
+
     module.exports = Users;
+    ```
 
 Call the controller from your request handler:
 
