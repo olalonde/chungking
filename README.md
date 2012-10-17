@@ -78,7 +78,7 @@ var Application = BaseController.extend(function() {
   // This before filter will be called whenever a controller that
   // extends Application gets an action called.
   this.beforeFilter(function() {
-    if(!this.req.user) res.send('Unauthorized!');
+    if(!this.req.user) this.res.send('Unauthorized!');
     else this.next();
   });
 
@@ -111,7 +111,7 @@ var Users = Application.extend(function() {
   });
   
   this.action('index', function() {
-    res.send('We are in the section ' + this.currentSection);
+    this.res.send('We are in the section ' + this.currentSection);
   });
 });
 ```
