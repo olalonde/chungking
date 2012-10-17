@@ -84,7 +84,7 @@ var Application = BaseController.extend(function() {
 
   // Set up some useful aliases
   this.beforeFilter(function() {
-    this.currentSection = 'Application');
+    this.currentSection = 'Application';
   });
 
   // This action will be available to any controller that extends
