@@ -50,15 +50,17 @@ module.exports = Users;
 
 Call the controller from your request handler:
 
-    // app.js
-    var Users = require('./users');
+```javascript
+// app.js
+var Users = require('./users');
 
-    // ...
+// ...
 
-    app.get('/users', function(req, res, next) {
-      var ctl = new Users(req, res, next);
-      ctl.action('index');
-    });
+app.get('/users', function(req, res, next) {
+  var ctl = new Users(req, res, next);
+  ctl.action('index');
+});
+```
 
 That's it!
 
@@ -68,48 +70,51 @@ You can also extend controllers.
 
 Application controller:
 
-    // application.js
-    var BaseController = require('chungking').BaseController;
+```javascript
+// application.js
+var BaseController = require('chungking').BaseController;
 
-    var Application = BaseController.extend(function() {
-      // This before filter will be called whenever a controller that
-      // extends Application gets an action called.
-      this.beforeFilter(function() {
-        if(!this.req.user) res.send('Unauthorized!');
-        else this.next();
-      });
+var Application = BaseController.extend(function() {
+  // This before filter will be called whenever a controller that
+  // extends Application gets an action called.
+  this.beforeFilter(function() {
+    if(!this.req.user) res.send('Unauthorized!');
+    else this.next();
+  });
 
-      // Set up some useful aliases
-      this.beforeFilter(function() {
-        this.currentSection = 'Application');
-      });
+  // Set up some useful aliases
+  this.beforeFilter(function() {
+    this.currentSection = 'Application');
+  });
 
-      // This action will be available to any controller that extends
-      // the Application controller.
-      this.action('whoami', function() {
-        this.res.send(this.req.user);
-      });
-    });
-    
-    module.exports = Application;
+  // This action will be available to any controller that extends
+  // the Application controller.
+  this.action('whoami', function() {
+    this.res.send(this.req.user);
+  });
+});
+
+module.exports = Application;
+```
 
 Users controller which extends the Application controller:
 
+```javascript
+// users.js
+var Application = require('./application');
 
-    // users.js
-    var Application = require('./application');
-
-    var Users = Application.extend(function() {
-      this.beforeFilter(function() {
-        console.log('This will be called after the Application'
-          + 'controller\'s before filters.');
-        this.next();
-      });
-      
-      this.action('index', function() {
-        res.send('We are in the section ' + this.currentSection);
-      });
-    });
+var Users = Application.extend(function() {
+  this.beforeFilter(function() {
+    console.log('This will be called after the Application'
+      + 'controller\'s before filters.');
+    this.next();
+  });
+  
+  this.action('index', function() {
+    res.send('We are in the section ' + this.currentSection);
+  });
+});
+```
 
 # TODO #
 
