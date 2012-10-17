@@ -11,42 +11,42 @@ Connect.js). Name comes from [Chungking Express](http://en.wikipedia.org/wiki/Ch
 
 Set up a Users controller
 
-    ```javascript
-    // users.js
-    var BaseController = require('chungking').BaseController;
+```javascript
+// users.js
+var BaseController = require('chungking').BaseController;
 
-    var Users = BaseController.extend(function() {
-      // this === Users.prototype
+var Users = BaseController.extend(function() {
+  // this === Users.prototype
 
-      // Before filters are called whenever you call an action.
-      // They are asynchronous so you need to call this.next()
-      // when you are done.
-      this.beforeFilter(function() {
-        console.log('This is called before any action is called.');
-        if(this.authenticate())
-          this.next();
-        else
-          this.res.send('Not authorized');
-      });
-      
-      // You can also add methods that are available to all your
-      // actions.
-      this.authenticate = function() {
-        console.log('You can put some authentication code here.');
-        return true;
-      }
+  // Before filters are called whenever you call an action.
+  // They are asynchronous so you need to call this.next()
+  // when you are done.
+  this.beforeFilter(function() {
+    console.log('This is called before any action is called.');
+    if(this.authenticate())
+      this.next();
+    else
+      this.res.send('Not authorized');
+  });
+  
+  // You can also add methods that are available to all your
+  // actions.
+  this.authenticate = function() {
+    console.log('You can put some authentication code here.');
+    return true;
+  }
 
-      // Add actions below
-      this.action('index', function() {
-        // this.req, this.res, this.next are available anywhere in
-        // your controller.
-        this.res.send('Users index.');
-      });
+  // Add actions below
+  this.action('index', function() {
+    // this.req, this.res, this.next are available anywhere in
+    // your controller.
+    this.res.send('Users index.');
+  });
 
-    });
+});
 
-    module.exports = Users;
-    ```
+module.exports = Users;
+```
 
 Call the controller from your request handler:
 
