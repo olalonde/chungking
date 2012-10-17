@@ -52,6 +52,8 @@ Users.prototype.beforeFilters.push(
 Users.prototype.actions.index = function() {
   console.log('Users index');
   console.log('Application tells me this is version ' + this.version());
+  //this.send('Wohooo users index! URL is ' + this.url);
+  this.next();
   //this.users (set by base controller)
 
   //this.res

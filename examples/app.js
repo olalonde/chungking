@@ -28,6 +28,8 @@ app.get('/help', function(req, res, next) {
 app.get('/users', function(req, res, next) {
   var ctl = new controllers.Users(req, res, next);
   ctl.action('index');
+}, function(req, res, next) {
+  console.log('testing this.next() in index action');
 });
 
 app.get('/users/new', function(req, res, next) {
