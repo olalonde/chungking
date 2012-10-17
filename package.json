@@ -6,4 +6,13 @@
   , "dependencies": {
     "express" : ""
   }
+  , "repository": {
+    "type": "git",
+    "url": "git://github.com/olalonde/chungking.git"
+  }
+  , "author": {
+    "name": "Olivier Lalonde"
+    , "email": "olalonde@gmail.com"
+    , "url": "http://www.syskall.com"
+  }
 }
