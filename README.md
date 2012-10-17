@@ -108,3 +108,8 @@ Users controller which extends the Application controller:
         res.send('We are in the section ' + this.currentSection);
       });
     });
+
+# TODO #
+
+- Limit before filters to only given actions.
+- Create some useful alias for commonly used methods (i.e. this.res.send could be mapped to this.send)
