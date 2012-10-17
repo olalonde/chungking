@@ -1,7 +1,7 @@
 # Chungking 
 
 Controller for Connect and Express (Node.js / Express.js /
-Connect.js).
+Connect.js). Name comes from [Chungking Express](http://en.wikipedia.org/wiki/Chungking_Express).
 
 ## Install
 
