@@ -67,20 +67,20 @@ That's it!
 ### Restricting beforeFilters to only specific actions
 
 ```javascript
-  this.authorize = function() {
-    console.log('This is called before any action is called.');
-    //authentication code here...
-  }
+this.authorize = function() {
+  console.log('This is called before any action is called.');
+  //authentication code here...
+}
 
-  // restrict to only some actions
-  this.beforeFilter({only: ['edit', 'update', 'create']}, function() {
-    this.authorize();
-  });
+// restrict to only some actions
+this.beforeFilter({only: ['edit', 'update', 'create']}, function() {
+  this.authorize();
+});
 
-  // execute for all actions except listed actions
-  this.beforeFilter({except: ['show']}, function() {
-    this.authorize();
-  });
+// execute for all actions except listed actions
+this.beforeFilter({except: ['show']}, function() {
+  this.authorize();
+});
 ```
 
 ### Tired of writing this.req, this.res and this.next?
@@ -88,11 +88,9 @@ That's it!
 You can optionally get them as params to your beforeFilters and actions.
 
 ```javascript
-
-  this.beforeFilter(function(req, res, next) {
-    res.send('aaahhh much better :)');
-  });
-
+this.beforeFilter(function(req, res, next) {
+  res.send('aaahhh much better :)');
+});
 ```
 
 ### Extending controllers
