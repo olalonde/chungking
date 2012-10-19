@@ -144,8 +144,3 @@ var Users = Application.extend(function() {
   });
 });
 ```
-
-# TODO #
-
-- Limit before filters to only given actions.
-- Create some useful alias for commonly used methods (i.e. this.res.send could be mapped to this.send)
