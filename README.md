@@ -144,3 +144,11 @@ var Users = Application.extend(function() {
   });
 });
 ```
+
+# TODO
+
+Rethink how inheritance works. Maybe child controllers should not
+inherit before filters and actions.
+
+Refactor the way inheritance is done. Maybe use utils.inherit from
+node.js http://nodejs.org/api/util.html#util_util_inherits_constructor_superconstructor.
