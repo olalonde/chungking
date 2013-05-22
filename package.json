@@ -1,7 +1,7 @@
 {
   "name": "chungking"
   , "description": "Controllers for Node.js and Express."
-  , "version": "0.0.6"
+  , "version": "0.0.7"
   , "main": "./lib/index"
   , "dependencies": {
     "express" : ""
